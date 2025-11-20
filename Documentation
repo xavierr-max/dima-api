@@ -1,0 +1,199 @@
+﻿Instalação de Pacotes e Referências (CMD)
+
+    dotnet add package Microsoft.AspNetCore.OpenApi
+    dotnet add package Swashbuckle.AspNetCore
+    dotnet add reference ../Dima.Core
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    dotnet add package Microsoft.EntityFrameworkCore.Design
+    dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    dotnet add package Stripe.Net
+
+Modelos Core
+
+    Criação de modelos no Core (Category, Transaction) --
+
+    Criação de enum no Core (ETransactionType) --
+
+Configuração do Swagger
+
+    Implementação do Swagger (pacote, builder, app) --
+
+Entity Framework (EF) e Banco de Dados
+
+    Implementação do EF (pacote) --
+
+    Criação do Configuration no Core --
+
+    Criação do AppDbContext
+
+    Implementação do AppDbContext no Program (builder) --
+
+    Mapeamento (Category, Transaction) --
+
+    Docker e SQL --
+
+    Implementação da ConnectionString no Program (builder) --
+
+    Uso do dotnet-user secrets --
+
+    Migrando para o Banco de dados --
+
+Requisições e Respostas (Category)
+
+    Criação dos requests no Core (Category) --
+
+    Criação dos responses no Core --
+
+Handler (Category)
+
+    Criação do ICategoryHandler no Core --
+
+    Criação do CategoryHandler --
+
+    Implementação do ICategoryHandler no Program (builder) --
+
+Endpoints (Category)
+
+    Criação do IEndpoint --
+
+    Criação dos endpoints (Category)
+
+    Criação do Endpoint
+
+    Implementação do Endpoint no Program (app)
+
+Handler e Endpoints (Transaction)
+
+    Criação do ITransactionHandler no Core
+
+    Criação dos requests no Core (Transaction)
+
+    Criação do TransactionHandler
+
+    Criação do DateTimeExtension no Core
+
+    Implementação do ITransactionHandler no Program (builder)
+
+    Criação dos endpoints (Transaction)
+
+Identity e Autenticação
+
+    Implementação do Identity (pacote, builder, app) --
+
+    Criação do model User --
+
+    Modificação no AppDbContext para o Identity --
+
+    Mapeamento da classe do User IdentityUser --
+
+    Mapeamento das demais tabelas do Identity --
+
+    Implementação da API do Identity no Program (builder) --
+
+    Migração do Identity para o Banco de dados --
+
+    Criação de endpoints (GetRolesEndpoint, LogoutEndpoint) --
+
+Configuração e CORS
+
+    Organizando a classe Program com BuilderExtension e AppExtension --
+
+    Cria o BackendUrl e FrontendUrl no appsettings.json
+
+    Implementa com Configuration o BackendUrl e FrontendUrl no Program
+
+    criacao do ApiConfiguration
+
+    Implementação do CORS no Program (builder)
+
+    Incremento da porta do Frontend no appsettings.json
+
+IR PARA WEB
+
+Relatórios (Reports)
+
+    Criação dos modelos de Reports no Core
+
+    Incremento de exemplos no BANCO DE DADOS
+
+    Criação do vwGetExpensesByCategory no BANCO DE DADOS
+
+    Criação do vwGetIncomesByCategory no BANCO DE DADOS
+
+    Criação do vwGetIncomesAndExpenses no BANCO DE DADOS
+
+    Criação dos requests de Reports no Core
+
+    Criação do IReportHandler no Core
+
+    Mapeamento das views no AppDbContext
+
+    Criação do ReportHandler
+
+    Criação dos endpoints de Reports
+
+    Incrementando os endpoints de Reports no Endpoint.cs
+
+    Registrando o serviço de IReportHandler no BuilderExtension (builder)
+    
+IR PARA WEB
+    
+Area de Pedidos
+
+    criacao dos modelos Voucher, Product e Order no Core
+    
+    criacao do enum EPaymentGateway e EOrderStatus no Core
+    
+    criacao dos requests em Orders no Core 
+    
+    criacao do IOrderHandler, IProductHandler e IVoucherHandler no Core
+    
+    mapeando Voucher, Product e Order
+    
+    atualizando o AppDbContext com Voucher, Product e Order
+    
+    aplicando as migracoes v4
+    
+    criacao dos Handlers de Voucher, Product e Order
+    
+    criacao dos Endpoints Voucher, Product e Order no Orders
+    
+    registrando os Handlers(serviços) de Voucher, Product e Order no BuilderExtension (builder)
+    
+    registrando os endpoints de Voucher, Product e Order no Endpoint
+   
+IR PARA WEB
+
+Conectando com o Stripe
+
+    criacao do IStripeHandler no Core
+    
+    criacao dos requests CreateSessionRequest e GetTransactionsByOrderNumber no Core
+    
+    criacao de um novo response para o Stripe no Core
+    
+    adicionar o pacote do stripe (pacote)
+    
+    criacao do StripeHandler e configurando o CreateSessionAsync() 
+    
+    incrementa o servico do stripe no Configuration do BuilderExtension (builder)
+    
+    adiciona o servico IStripeHandler no BuilderExtension (builder)
+    
+    incremento da chave do stripe no appsettings.json com user-secrets
+    
+    criacao do endpoint do stripe
+    
+    adicionando o endpoint do stripe ao Endpoint.cs 
+    
+IR PARA WEB
+    
+Conectando com o Stripe pt.2
+
+    configurando o GetTransactionsByOrderNumberAsync() no StripeHandler
+    
+    modificando o OrderHandler para o PayAsync()
+    
+IR PARA WEB
+    
+    
