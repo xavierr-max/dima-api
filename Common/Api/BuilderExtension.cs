@@ -22,7 +22,6 @@ public static class BuilderExtension
         ApiConfiguration.StringApiKey = builder.Configuration.GetValue<string>("StripeApiKey") ?? string.Empty;
         
         StripeConfiguration.ApiKey = ApiConfiguration.StringApiKey;
-        var x = Configuration.ConnectionString;
     }
 
     public static void AddDocumentation(this WebApplicationBuilder builder)
