@@ -31,6 +31,9 @@ jobs:
 
       - name: Update database
         run: dotnet ef database update
+        env:
+          # O formato é: Secao__Chave (dois underlines)
+          ConnectionStrings__DefaultConnection: ${{ secrets.CONNECTION_STRING }}
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -60,3 +63,4 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_673FB6AEE4B24F28B40FE1ADFADFE362 }}
+
