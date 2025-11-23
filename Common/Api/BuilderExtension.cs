@@ -68,7 +68,7 @@ public static class BuilderExtension
                         //Define quais domínios têm permissão para acessar a API
                     .WithOrigins([
                         Configuration.BackendUrl,
-                        Configuration.FrontEndUrl
+                        "https://icy-beach-0f027050f.3.azurestaticapps.net"
                     ])
                     .AllowAnyMethod()
                     .AllowAnyHeader()
