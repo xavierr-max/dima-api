@@ -48,14 +48,24 @@ public static class BuilderExtension
             .AddDbContext<AppDbContext>
                 (x => { x.UseSqlServer(Configuration.ConnectionString); });
         
-        //API do Identity
+        // Configuração do Identity
         builder.Services
-                //representar os usuários no sistema
             .AddIdentityCore<User>()
-                //representar as funções
             .AddRoles<IdentityRole<long>>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddApiEndpoints();
+
+        // --- NOVO CÓDIGO: CONFIGURAÇÃO DO COOKIE ---
+        // Isso permite que o Cookie funcione entre o Front (static web apps) e o Back (app service)
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            // Permite envio Cross-Site (Domínios diferentes)
+            options.Cookie.SameSite = SameSiteMode.None;
+            
+            // Exige HTTPS (Obrigatório quando usa SameSite=None)
+            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        });
+        // -------------------------------------------
     }
 
     //permitir que endereços diferentes(frontend) possa envia requisicoes 
@@ -67,7 +77,7 @@ public static class BuilderExtension
                 policy => policy
                         //Define quais domínios têm permissão para acessar a API
                     .WithOrigins([
-                        Configuration.BackendUrl,
+                        "https://dima-api-c2aqh0czb6ckfabr.brazilsouth-01.azurewebsites.net/",
                         "https://icy-beach-0f027050f.3.azurestaticapps.net"
                     ])
                     .AllowAnyMethod()
