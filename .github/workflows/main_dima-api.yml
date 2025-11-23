@@ -23,8 +23,14 @@ jobs:
         with:
           dotnet-version: '10.x'
 
+      - name: Install EF Tools
+        run: dotnet tool install --global dotnet-ef
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
+
+      - name: Update database
+        run: dotnet ef database update
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
